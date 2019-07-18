@@ -27,6 +27,7 @@ public class JavaParserTagConverterRegistrar {
         //注册特殊标签的转换器,其它默认使用DefaultJavaParserTagConverterImpl
         registerConverter("@param", new ParamTagConverter());
         registerConverter("@see", new SeeTagConverter());
+        registerConverter("@req", new ReqTagConverter());
         registerConverter("@resp", new RespTagConverter());
     }
 

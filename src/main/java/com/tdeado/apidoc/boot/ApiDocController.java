@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.PostConstruct;
 import java.util.Arrays;
@@ -21,6 +22,7 @@ import java.util.List;
  * @author leaf
  * @date 2017-03-09 15:36
  */
+@RestController
 @RequestMapping("apidoc")
 public class ApiDocController {
 

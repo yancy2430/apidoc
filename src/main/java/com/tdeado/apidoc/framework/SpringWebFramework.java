@@ -4,10 +4,7 @@ package com.tdeado.apidoc.framework;
 import com.tdeado.apidoc.model.ApiAction;
 import com.tdeado.apidoc.model.ApiModule;
 import com.tdeado.apidoc.model.ObjectInfo;
-import com.tdeado.apidoc.tag.DocTag;
-import com.tdeado.apidoc.tag.ParamTagImpl;
-import com.tdeado.apidoc.tag.RespTagImpl;
-import com.tdeado.apidoc.tag.SeeTagImpl;
+import com.tdeado.apidoc.tag.*;
 import com.tdeado.apidoc.utils.TagUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -94,10 +91,10 @@ public class SpringWebFramework implements Framework {
         }
 
         saa.setParam(this.getParams(saa));
+        saa.setReqObj(this.getReqObj(saa));
         saa.setRespParam(this.getResp(saa));
         saa.setReturnObj(this.getSeeObj(saa));
         saa.setReturnDesc(this.getReturnDesc(saa));
-
         return saa;
     }
 
@@ -164,7 +161,13 @@ public class SpringWebFramework implements Framework {
         SeeTagImpl tag = (SeeTagImpl) TagUtils.findTag(saa.getDocTags(), "@see");
         return tag != null ? tag.getValues() : null;
     }
-
+    /**
+     * 获取@req注释上的对象
+     */
+    protected ObjectInfo getReqObj(SpringApiAction saa) {
+        ReqTagImpl tag = (ReqTagImpl) TagUtils.findTag(saa.getDocTags(), "@req");
+        return tag != null ? tag.getValues() : null;
+    }
     /**
      * 获取@param注释上的信息
      */

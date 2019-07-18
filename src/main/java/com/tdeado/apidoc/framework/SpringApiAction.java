@@ -34,6 +34,11 @@ public class SpringApiAction extends ApiAction {
     private ObjectInfo returnObj;
 
     /**
+     * 请求对象
+     */
+    private ObjectInfo reqObj;
+
+    /**
      * 出参
      */
     private List<ParamInfo> respParam = new ArrayList<>(0);
